@@ -18,7 +18,9 @@ server.on('connection', function(socket) {
     
     // 受信したメッセージを全てのクライアントに送信する
     server.clients.forEach(function(client) {
-      client.send(data);
+      if (client) {
+        client.send(data);        
+      }
     });
   });
 });
